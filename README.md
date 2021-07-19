@@ -23,22 +23,22 @@ This repo includes two brances: master and template, for this assignment we are 
 
 Once the repo is cloned and ready, install all required npm packages. Also, make sure that the final file structure looks something like this:
 
--- node_modules/ (auto-generated)
--- public/
---- css/
----- styles.css
---- img/
----- favicon.png
---- js/
----- chat.js
---- chat.html
---- index.html
--- src/
---- utils/
----- messages.js
----- users.js
---- index.js
--- package.json (already included)
+- node_modules/ (auto-generated)
+- public/
+  - css/
+    - styles.css
+  - img/
+    - favicon.png
+  - js/
+    - chat.js
+  - chat.html
+  - index.html
+- src/
+  - utils/
+    - messages.js
+    - users.js
+  - index.js
+- package.json (already included)
 
 # Static server creation
 
