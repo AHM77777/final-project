@@ -36,6 +36,11 @@ io.on('connection', socket => {
     });
 });
 
+/**
+ * Start a connection with a websocket
+ *
+ * @param {Object} data - Data used to populate the message
+ */
 var generateMessage = function(data) {
     return {
         username: data.username,

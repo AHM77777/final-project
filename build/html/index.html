@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Welcome to websockets-lesson’s documentation! &#8212; websockets-lesson  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="welcome-to-websockets-lesson-s-documentation">
+<h1>Welcome to websockets-lesson’s documentation!<a class="headerlink" href="#welcome-to-websockets-lesson-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="js function">
+<dt class="sig sig-object js" id="generateMessage">
+<span class="sig-name descname"><span class="pre">generateMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#generateMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start a connection with a websocket</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<span><code class="xref js js-func docutils literal notranslate"><span class="pre">Object()</span></code></span>) – Data used to populate the message</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.use">
+<span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">use</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Allows registering middlewares for different paths in the instantiated express server.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="io.on">
+<span class="sig-prename descclassname"><span class="pre">io.</span></span><span class="sig-name descname"><span class="pre">on</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">event</span></em>, <em class="sig-param"><span class="pre">callback:</span> <span class="pre">Function&lt;socket&gt;</span> <span class="pre">|</span> <span class="pre">Function&lt;options</span></em>, <em class="sig-param"><span class="pre">callback&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#io.on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>React to an event with the logic defined in the callback, which has either a parameter for the socket (in case of opening a connection) or two parameters for the options sent and the post handle actions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="io.to">
+<span class="sig-prename descclassname"><span class="pre">io.</span></span><span class="sig-name descname"><span class="pre">to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">room_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io.to" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Specifies the channel an event will be broadcasted to.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="socket.join">
+<span class="sig-prename descclassname"><span class="pre">socket.</span></span><span class="sig-name descname"><span class="pre">join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">room_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#socket.join" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Subscribe a socket to the specified room, so they can share events with the channel.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="socket.emit">
+<span class="sig-prename descclassname"><span class="pre">socket.</span></span><span class="sig-name descname"><span class="pre">emit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#socket.emit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Send an event to the specified socket, so only he can see the content.</p>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">websockets-lesson</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Antonio Hernandez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
