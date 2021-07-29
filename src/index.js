@@ -21,22 +21,27 @@ io.on('connection', socket => {
         callback();
     });
 
-    socket.emit('message', generateMessage({
-        username: 'Admin',
-        text: 'Welcome!'
-    }));
+    socket.emit('message', generateMessage({username: 'Admin',text: 'Welcome!'}))
+
+    socket.on('sendMessage', function(options, callback){
+        io.to(options.room).emit('message', generateMessage({
+            username: socket.id,
+            text: options.text
+        }))
+        callback()
+    });
 
     io.on('disconnection', socket => {
         console.log(socket.id + ' left the chat');
     });
 });
 
-const generateMessage = data => {
+var generateMessage = function(data) {
     return {
-      username: data.username,
-      text: data.text,
-      createdAt: new Date().getTime()
+        username: data.username,
+        text: data.text,
+        createdAt: new Date().getTime()
     }
-  };
+}
 
 server.listen(port);

@@ -247,7 +247,7 @@ $chatForm.addEventListener('submit', e => {
         return console.log('Please add a message');
     }
 
-    socket.emit('sendMessage', e.target.elements.message.value, error => {
+    socket.emit('sendMessage', {text: e.target.elements.message.value, room}, error => {
       $chatFormInput.value = '';
       $chatFormInput.focus();
 
@@ -267,8 +267,34 @@ We now need to open the index.js file and add the following event to react on th
 ```
 // Code
 
-
+socket.on('sendMessage', (options, callback) => {
+    io.to(options.room).emit('message', generateMessage({
+        username: socket.id,
+        text: options.text
+    }));
+    callback();
+});
 
 // Code
 
 ```
+
+We have two parameters available here: the room this message is going to be sent to, and the content of the message itself.
+
+Then using the method to() from the io object, we can specify which channel is going to receive the event. In this case we are going to emit a _message_ event, which all clients subscribed to the channel will receive.
+
+Since the event _message_ is already defined you can notice how all messages sent are being rendered in real time, and now everyone can communicate with each other in real time!
+
+## Activity: how can this be improved?
+
+Now that you learned how to setup a live chat, think about some improvements that could be done here:
+
+- Currently we have no way to store the name of the user, so a user system can be a nice addition.
+  - How would you store the data?
+  - Do you need a specialized class?
+  - What properties and methods are needed to manipulate the users?
+- Users might want to send their location in realtime for all other people in their room to see.
+  - How will you get the required geolocation data?
+- The users might want to know which room they are on, and the people in their room. It would be nice to add a list in the left sidebar of the chat page.
+- Code could be improved more upon. Try to refactor it to use the best practices.
+- _Bonus:_ Autoscrolling features are a must in any messaging app, how could you add the functionality to your chat?

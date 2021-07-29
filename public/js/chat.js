@@ -7,12 +7,10 @@ const $chatFormSubmit = $chatForm.querySelector('button');
 const $messages = document.querySelector('#chat-log');
 
 // Options
-const { username, room } = Qs.parse(location.search, { ignoreQueryPrefix: true });
+const options = Qs.parse(location.search, { ignoreQueryPrefix: true });
 
 // Templates
-const templates = {
-    message: document.querySelector('#message-template').innerHTML,
-};
+const templates = {message: document.querySelector('#message-template').innerHTML};
 
 socket.on('message', data => {
     addMessage(templates.message, {
@@ -29,7 +27,7 @@ $chatForm.addEventListener('submit', e => {
         return console.log('Please add a message');
     }
 
-    socket.emit('sendMessage', e.target.elements.message.value, error => {
+    socket.emit('sendMessage', {text: e.target.elements.message.value, room: options.room}, error => {
       $chatFormInput.value = '';
       $chatFormInput.focus();
 
@@ -40,7 +38,7 @@ $chatForm.addEventListener('submit', e => {
 });
 
 // Register new user
-socket.emit('join', { username, room }, error => {
+socket.emit('join', { username: options.username, room: options.room }, error => {
     if (error) {
         alert(error);
         location.href = '/';
